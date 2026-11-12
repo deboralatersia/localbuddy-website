@@ -197,17 +197,23 @@ header.scrolled .hamburger{color:var(--ink);}
   display:flex; flex-direction:column;
 }
 .buddy-card:hover{transform:translateY(-5px)}
+
+/* PENGATURAN FOTO BUDDY */
 .buddy-avatar{
   width:120px;height:120px;border-radius:50%;margin:0 auto 16px;
   background:linear-gradient(135deg,var(--green),var(--green-dark));
-  display:grid;place-items:center;color:#fff;font-size:2.5rem;font-weight:800;
-  font-family:'Fraunces',serif;position:relative;
+  position:relative; overflow:hidden; border: 4px solid #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+/* Objek gambar diletakkan di atas (object-position) agar bagian tulisan nama terpotong */
+.buddy-avatar img{
+  width:100%; height:100%; object-fit:cover; object-position: top center; transform: scale(1.15);
 }
 .buddy-avatar::after{
   content:'✓';position:absolute;bottom:5px;right:5px;
   width:28px;height:28px;background:#25D366;color:#fff;border-radius:50%;
-  font-size:.8rem;display:grid;place-items:center;border:3px solid #fff;
+  font-size:.8rem;display:grid;place-items:center;border:3px solid #fff; z-index: 2;
 }
+
 .buddy-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.2rem;margin-bottom:4px}
 .buddy-card .age{font-size:.85rem;color:var(--gray);margin-bottom:12px}
 .buddy-tags{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
@@ -455,7 +461,8 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
       </div>
       <!-- GIANYAR -->
       <div class="tour-card">
-        <div class="tour-img" style="background-image:url('https://images.unsplash.com/photo-1573894962266-660892c0e091?w=600&q=80')">
+        <!-- FOTO GIANYAR BARU DIMASUKKAN (Pantai/Tebing) -->
+        <div class="tour-img" style="background-image:url('https://images.unsplash.com/photo-1543373072-66d1924cd6fa?w=600&q=80')">
           <span class="tour-duration" data-en="8 Hours" data-id="8 Jam">8 Hours</span>
         </div>
         <div class="tour-body">
@@ -495,7 +502,10 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
     <div class="buddy-grid">
       <!-- DEBORA -->
       <div class="buddy-card">
-        <div class="buddy-avatar">DL</div>
+        <div class="buddy-avatar">
+          <!-- FOTO DEBORA -->
+          <img src="https://i.ibb.co.com/C3sgsTBj/debora.jpg" alt="Debora">
+        </div>
         <h4>Debora</h4>
         <div class="age" data-en="21 y.o · Undiksha" data-id="21 Tahun · Undiksha">21 y.o · Undiksha</div>
         <div class="buddy-tags">
@@ -519,7 +529,10 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
 
       <!-- VELLICIA -->
       <div class="buddy-card">
-        <div class="buddy-avatar">PV</div>
+        <div class="buddy-avatar">
+          <!-- FOTO SEMENTARA MENGGUNAKAN FOTO DEBORA (GANTI JIKA ADA) -->
+          <img src="https://i.ibb.co.com/C3sgsTBj/debora.jpg" alt="Vellicia">
+        </div>
         <h4>Vellicia</h4>
         <div class="age" data-en="22 y.o · Undiksha" data-id="22 Tahun · Undiksha">22 y.o · Undiksha</div>
         <div class="buddy-tags">
@@ -543,7 +556,10 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
 
       <!-- VANIA -->
       <div class="buddy-card">
-        <div class="buddy-avatar">VA</div>
+        <div class="buddy-avatar">
+          <!-- FOTO SEMENTARA MENGGUNAKAN FOTO DEBORA (GANTI JIKA ADA) -->
+          <img src="https://i.ibb.co.com/C3sgsTBj/debora.jpg" alt="Vania">
+        </div>
         <h4>Vania</h4>
         <div class="age" data-en="23 y.o · Undiksha" data-id="23 Tahun · Undiksha">23 y.o · Undiksha</div>
         <div class="buddy-tags">
@@ -643,7 +659,6 @@ let currentLang = 'en';
 function setLang(lang) {
   currentLang = lang;
   
-  // Ganti semua teks berdasarkan atribut data-en / data-id
   const elements = document.querySelectorAll('[data-en]');
   elements.forEach(el => {
     if (lang === 'en') {
@@ -653,7 +668,6 @@ function setLang(lang) {
     }
   });
 
-  // Ubah status tombol aktif
   document.getElementById('btn-en').classList.remove('active');
   document.getElementById('btn-id').classList.remove('active');
   document.getElementById('btn-' + lang).classList.add('active');
