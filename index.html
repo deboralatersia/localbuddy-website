@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Local Buddy Bali Explorer — Explore Bali with a Local Student Buddy</title>
-<meta name="description" content="Ride with verified English-speaking university students. Hidden gems, real culture, zero tourist traps. Official travel agency (KBLI 79111). Safe, authentic, affordable.">
+<title>Local Buddy Bali Explorer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
@@ -46,14 +45,12 @@ section{padding:90px 0}
 
 /* ========== BUTTONS ========== */
 .btn{
-  display:inline-flex;align-items:center;gap:10px;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
   padding:15px 30px;border-radius:50px;font-weight:700;font-size:.98rem;
   transition:.25s;border:none;cursor:pointer;font-family:inherit;
 }
 .btn-primary{background:var(--coral);color:#fff;box-shadow:0 8px 24px rgba(255,107,74,.35)}
 .btn-primary:hover{background:var(--coral-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,107,74,.45)}
-.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
-.btn-ghost:hover{background:var(--ink);color:#fff}
 .btn-white{background:#fff;color:var(--green-dark)}
 .btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.2)}
 .btn-wa{background:#25D366;color:#fff}
@@ -76,22 +73,26 @@ header.scrolled{
   display:grid;place-items:center;color:#fff;font-size:1.3rem;
 }
 .logo-text small{display:block;font-size:.7rem;font-weight:600;color:#FFD9A0;letter-spacing:.05em}
-/* Menu Links - Dibuat Putih agar terlihat di background hijau */
 .nav-links{display:flex;gap:30px;list-style:none;align-items:center}
 .nav-links a{font-weight:700;font-size:.95rem;color:var(--white);transition:.2s; text-shadow: 0 1px 3px rgba(0,0,0,0.3);}
 .nav-links a:hover{color:#FFD9A0; transform:translateY(-1px)}
 
-/* Navbar saat di-scroll ke bawah (warna teks berubah gelap) */
 header.scrolled .logo{color:var(--ink);}
 header.scrolled .logo-text small{color:var(--coral);}
 header.scrolled .nav-links a{color:var(--ink); text-shadow: none;}
 header.scrolled .nav-links a:hover{color:var(--coral);}
-header.scrolled .lang-switch{color:var(--gray);}
-header.scrolled .hamburger{color:var(--ink);}
 
 .nav-cta{display:flex;gap:12px;align-items:center}
-.lang-switch{font-size:.85rem;font-weight:700;color:var(--white);display:flex;gap:6px;align-items:center}
+/* TOMBOL BAHASA */
+.lang-switch{font-size:.85rem;font-weight:700;display:flex;gap:6px;align-items:center; color:var(--white);}
+header.scrolled .lang-switch{color:var(--gray);}
+.lang-switch button{background:none;border:none;color:inherit;font-family:inherit;font-size:inherit;font-weight:inherit;cursor:pointer;transition:.2s;padding:4px 8px;border-radius:4px;}
+.lang-switch button.active{color:var(--coral); background:rgba(255,107,74,.1);}
+header.scrolled .lang-switch button.active{color:var(--coral);}
+.lang-switch button:hover{color:var(--coral);}
+
 .hamburger{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--white);}
+header.scrolled .hamburger{color:var(--ink);}
 
 /* ========== HERO ========== */
 .hero{
@@ -115,19 +116,6 @@ header.scrolled .hamburger{color:var(--ink);}
 .hero-stats div{display:flex;flex-direction:column}
 .hero-stats strong{font-size:1.8rem;font-family:'Fraunces',serif;color:#FFD9A0}
 .hero-stats span{font-size:.85rem;opacity:.85}
-.hero-card{
-  background:rgba(255,255,255,.12);backdrop-filter:blur(14px);
-  border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:30px;
-  position:relative;
-}
-.hero-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;text-transform:uppercase;letter-spacing:.1em;opacity:.8;margin-bottom:18px}
-.buddy-mini{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15)}
-.buddy-mini:last-child{border-bottom:none}
-.buddy-mini .avatar{width:48px;height:48px;border-radius:50%;background:#FFD9A0;display:grid;place-items:center;font-weight:800;color:var(--green-dark);font-size:1.1rem;flex-shrink:0}
-.buddy-mini .info{flex:1;min-width:0}
-.buddy-mini .info strong{display:block;font-size:.95rem}
-.buddy-mini .info small{font-size:.78rem;opacity:.8}
-.badge-verified{background:rgba(255,217,160,.2);color:#FFD9A0;font-size:.7rem;padding:4px 10px;border-radius:20px;font-weight:700;white-space:nowrap}
 
 /* ========== TRUST BAR ========== */
 .trust-bar{background:var(--sand);padding:28px 0}
@@ -174,112 +162,91 @@ header.scrolled .hamburger{color:var(--ink);}
 .tour-meta{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid #F0F0EA;margin-top:auto}
 .tour-price{font-family:'Fraunces',serif;font-size:1.4rem;color:var(--green);font-weight:700}
 .tour-price small{font-size:.72rem;color:var(--gray);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;display:block}
-.tour-book{background:var(--green-light);color:var(--green-dark);padding:10px 20px;border-radius:50px;font-weight:700;font-size:.85rem;transition:.2s;border:none;cursor:pointer;font-family:inherit}
+.tour-book{background:var(--green-light);color:var(--green-dark);padding:10px 20px;border-radius:50px;font-weight:700;font-size:.85rem;transition:.2s;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;}
 .tour-book:hover{background:var(--green);color:#fff}
 
-/* ========== BUDDIES ========== */
-.buddies{background:var(--sand)}
-.buddy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+/* CUSTOM TOUR BOX */
+.custom-tour-box{
+  margin-top:50px;background:var(--sand);border-radius:24px;padding:40px;
+  border: 2px dashed var(--coral); display:flex; justify-content:space-between; align-items:center; gap:30px; flex-wrap:wrap;
+}
+.custom-tour-box h3{color:var(--green-dark);margin-bottom:8px;}
+.custom-tour-box p{color:var(--gray);font-size:.95rem;max-width:600px;}
+.custom-tour-prices{display:flex;gap:20px;flex-wrap:wrap;margin-top:15px;}
+.custom-tour-prices span{background:#fff;padding:8px 16px;border-radius:8px;font-weight:700;font-size:.85rem;color:var(--coral);box-shadow:0 2px 10px rgba(0,0,0,.05);}
+
+/* ========== BUDDIES & REVIEWS ========== */
+.buddies{background:var(--white)}
+.buddy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
 .buddy-card{
-  background:#fff;border-radius:var(--radius);overflow:hidden;text-align:center;
-  padding:30px 20px 24px;box-shadow:var(--shadow);transition:.3s;
+  background:var(--sand);border-radius:var(--radius);overflow:hidden;text-align:center;
+  padding:36px 24px 24px;box-shadow:var(--shadow);transition:.3s;
+  display:flex; flex-direction:column;
 }
 .buddy-card:hover{transform:translateY(-5px)}
+.buddy-img-wrapper{
+  width:120px;height:120px;border-radius:50%;margin:0 auto 16px;
+  background:var(--green-light); display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden; border:4px solid #fff; box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+.buddy-img-wrapper img{width:100%;height:100%;object-fit:cover;}
 .buddy-avatar{
-  width:90px;height:90px;border-radius:50%;margin:0 auto 16px;
+  width:120px;height:120px;border-radius:50%;margin:0 auto 16px;
   background:linear-gradient(135deg,var(--green),var(--green-dark));
-  display:grid;place-items:center;color:#fff;font-size:2rem;font-weight:800;
+  display:grid;place-items:center;color:#fff;font-size:2.5rem;font-weight:800;
   font-family:'Fraunces',serif;position:relative;
 }
 .buddy-avatar::after{
-  content:'✓';position:absolute;bottom:0;right:0;
-  width:26px;height:26px;background:#25D366;color:#fff;border-radius:50%;
+  content:'✓';position:absolute;bottom:5px;right:5px;
+  width:28px;height:28px;background:#25D366;color:#fff;border-radius:50%;
   font-size:.8rem;display:grid;place-items:center;border:3px solid #fff;
 }
-.buddy-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;margin-bottom:4px}
-.buddy-card .uni{font-size:.82rem;color:var(--gray);margin-bottom:12px}
-.buddy-tags{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
-.tag{font-size:.7rem;padding:4px 10px;border-radius:20px;background:var(--green-light);color:var(--green-dark);font-weight:700}
+.buddy-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.2rem;margin-bottom:4px}
+.buddy-card .age{font-size:.85rem;color:var(--gray);margin-bottom:12px}
+.buddy-tags{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.tag{font-size:.75rem;padding:5px 12px;border-radius:20px;background:var(--green-light);color:var(--green-dark);font-weight:700}
 .tag.senior{background:#FFF0D6;color:#B8741A}
-.buddy-rating{font-size:.85rem;font-weight:700;color:var(--ink)}
-.buddy-rating span{color:#F5A623}
 
-/* ========== PRICING ========== */
-.pricing{background:var(--white)}
-.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-.price-card{
-  border-radius:24px;padding:40px;border:2px solid #F0F0EA;transition:.3s;
-}
-.price-card.featured{
-  background:linear-gradient(135deg,var(--green),var(--green-dark));color:#fff;
-  border:none;box-shadow:0 20px 50px rgba(11,110,79,.25);position:relative;
-}
-.price-card.featured::before{
-  content:'FOR TRAVELERS';position:absolute;top:-12px;left:40px;
-  background:var(--coral);color:#fff;font-size:.7rem;font-weight:800;
-  letter-spacing:.1em;padding:6px 16px;border-radius:20px;
-}
-.price-card.buddy-price::before{content:'FOR STUDENT BUDDIES';background:var(--green)}
-.price-card h3{font-size:1.5rem;margin-bottom:8px}
-.price-card .price-desc{font-size:.9rem;color:var(--gray);margin-bottom:24px}
-.price-card.featured .price-desc{color:rgba(255,255,255,.8)}
-.price-line{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:14px 0;border-bottom:1px dashed #E5E5DD;
-}
-.price-card.featured .price-line{border-color:rgba(255,255,255,.2)}
-.price-line:last-of-type{border-bottom:none;margin-bottom:24px}
-.price-line .label{font-size:.92rem;font-weight:600}
-.price-line .val{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;color:var(--green)}
-.price-card.featured .price-line .val{color:#FFD9A0}
-.price-note{font-size:.82rem;color:var(--gray);margin-bottom:24px;padding:14px;background:var(--sand);border-radius:12px}
-.price-card.featured .price-note{background:rgba(255,255,255,.12);color:rgba(255,255,255,.9)}
-.price-card .btn{width:100%;justify-content:center}
+/* REVIEWS KECIL DI DALAM CARD */
+.buddy-reviews{text-align:left; background:#fff; padding:16px; border-radius:12px; margin-top:auto; box-shadow:0 4px 15px rgba(0,0,0,.03);}
+.buddy-reviews h5{font-size:.8rem;color:var(--gray);margin-bottom:12px; text-transform:uppercase; letter-spacing:.05em;}
+.review-item{margin-bottom:12px; padding-bottom:12px; border-bottom:1px dashed #E5E5DD;}
+.review-item:last-child{margin-bottom:0; padding-bottom:0; border-bottom:none;}
+.review-stars{color:#F5A623;font-size:.8rem;margin-bottom:4px;}
+.review-text{font-size:.82rem;color:var(--ink);font-style:italic;margin-bottom:4px; line-height:1.4;}
+.review-author{font-size:.75rem;font-weight:700;color:var(--green-dark);}
 
-/* ========== JOIN BUDDY ========== */
+/* ========== JOIN BUDDY (EMAIL) ========== */
 .buddy-join{background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff}
 .buddy-join-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .buddy-join h2{color:#fff;margin-bottom:20px}
 .buddy-join p{opacity:.9;margin-bottom:30px}
-.benefit-list{list-style:none;display:grid;gap:16px}
+.benefit-list{list-style:none;display:grid;gap:16px; margin-bottom:40px;}
 .benefit-list li{display:flex;gap:14px;align-items:flex-start;font-size:.98rem}
 .benefit-list .ben-icon{font-size:1.4rem;flex-shrink:0}
-.join-form{
+.email-box{
   background:#fff;border-radius:24px;padding:40px;color:var(--ink);
-  box-shadow:0 30px 60px rgba(0,0,0,.25);
+  box-shadow:0 30px 60px rgba(0,0,0,.25); text-align:center;
 }
-.join-form h3{font-size:1.4rem;margin-bottom:6px}
-.join-form .form-sub{font-size:.88rem;color:var(--gray);margin-bottom:24px}
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:.82rem;font-weight:700;margin-bottom:6px;color:var(--ink)}
-.form-group input,.form-group select{
-  width:100%;padding:12px 16px;border:2px solid #EEEEEA;border-radius:10px;
-  font-family:inherit;font-size:.92rem;transition:.2s;background:#FAFAF7;
+.email-box h3{font-size:1.4rem;margin-bottom:12px; color:var(--green-dark);}
+.email-box p{font-size:.95rem;color:var(--gray);margin-bottom:24px;}
+.email-address{
+  background:var(--sand); padding:16px; border-radius:12px; font-family:monospace;
+  font-size:1.1rem; font-weight:700; color:var(--coral); margin-bottom:20px; border:1px dashed var(--coral);
+  user-select:all; cursor:pointer;
 }
-.form-group input:focus,.form-group select:focus{
-  outline:none;border-color:var(--green);background:#fff;
-}
+.email-subject{font-size:.85rem; color:var(--gray); margin-bottom:20px; display:block;}
 
 /* ========== FOOTER ========== */
 footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px}
 .footer-brand .logo{color:#fff;margin-bottom:16px}
 .footer-brand p{font-size:.88rem;line-height:1.7;max-width:300px}
-.footer-socials{display:flex;gap:12px;margin-top:20px}
-.footer-socials a{
-  width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);
-  display:grid;place-items:center;transition:.2s;font-size:1.1rem;
-}
-.footer-socials a:hover{background:var(--coral);transform:translateY(-3px)}
 .footer-col h5{color:#fff;font-size:.95rem;margin-bottom:18px;font-weight:700}
 .footer-col ul{list-style:none;display:grid;gap:10px}
 .footer-col a{font-size:.88rem;transition:.2s}
 .footer-col a:hover{color:#FFD9A0}
-.footer-bottom{
-  border-top:1px solid rgba(255,255,255,.1);padding-top:26px;
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.82rem;
-}
-.footer-bottom .legal-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;text-align:center;font-size:.82rem;}
 
 /* ========== FLOATING WA ========== */
 .wa-float{
@@ -297,8 +264,7 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
 
 /* ========== RESPONSIVE ========== */
 @media(max-width:968px){
-  .hero-grid,.buddy-join-grid,.pricing-grid{grid-template-columns:1fr}
-  .hero-card{display:none}
+  .hero-grid,.buddy-join-grid{grid-template-columns:1fr}
   .nav-links{display:none}
   .hamburger{display:block}
   .trust-grid,.steps{grid-template-columns:repeat(2,1fr)}
@@ -311,8 +277,8 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
   .hero-cta .btn{width:100%;justify-content:center}
   .trust-grid,.steps,.tour-grid,.buddy-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
   .wa-float{width:56px;height:56px;bottom:20px;right:20px}
+  .lang-switch{display:none;} /* Sembunyikan switch bahasa di HP jika layar terlalu kecil, atau biarkan jika muat */
 }
 </style>
 </head>
@@ -329,15 +295,17 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
       </div>
     </a>
     <ul class="nav-links">
-      <li><a href="#how">How It Works</a></li>
-      <li><a href="#tours">Tours</a></li>
-      <li><a href="#buddies">Our Buddies</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#join">Become a Buddy</a></li>
+      <li><a href="#how" data-en="How It Works" data-id="Cara Kerja">How It Works</a></li>
+      <li><a href="#tours" data-en="Tours" data-id="Paket Tur">Tours</a></li>
+      <li><a href="#buddies" data-en="Our Buddies" data-id="Profil Buddy">Our Buddies</a></li>
+      <li><a href="#join" data-en="Become a Buddy" data-id="Gabung Buddy">Become a Buddy</a></li>
     </ul>
     <div class="nav-cta">
-      <div class="lang-switch">EN <span>|</span> <a href="#" style="color:var(--coral)">ID</a></div>
-      <!-- GANTI NOMOR WA DI SINI -->
+      <!-- FITUR GANTI BAHASA -->
+      <div class="lang-switch">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button> | 
+        <button id="btn-id" onclick="setLang('id')">ID</button>
+      </div>
       <a href="https://wa.me/6281314497299?text=Hi%20Local%20Buddy!%20I%20want%20to%20book%20a%20tour." target="_blank" class="btn btn-wa" style="padding:10px 22px;font-size:.88rem">💬 Book Now</a>
       <button class="hamburger" onclick="document.getElementById('mobileMenu').style.display='block'">☰</button>
     </div>
@@ -348,12 +316,11 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
 <div id="mobileMenu" style="display:none;position:fixed;inset:0;background:rgba(255,255,255,.98);z-index:2000;padding:40px 24px">
   <button onclick="document.getElementById('mobileMenu').style.display='none'" style="position:absolute;top:20px;right:24px;font-size:2rem;background:none;border:none;cursor:pointer">✕</button>
   <div style="display:flex;flex-direction:column;gap:24px;margin-top:60px;font-size:1.2rem;font-weight:700">
-    <a href="#how" onclick="document.getElementById('mobileMenu').style.display='none'">How It Works</a>
-    <a href="#tours" onclick="document.getElementById('mobileMenu').style.display='none'">Tours</a>
-    <a href="#buddies" onclick="document.getElementById('mobileMenu').style.display='none'">Our Buddies</a>
-    <a href="#pricing" onclick="document.getElementById('mobileMenu').style.display='none'">Pricing</a>
-    <a href="#join" onclick="document.getElementById('mobileMenu').style.display='none'">Become a Buddy</a>
-    <a href="https://wa.me/6281314497299" class="btn btn-wa" style="justify-content:center;margin-top:20px">💬 Book via WhatsApp</a>
+    <a href="#how" onclick="document.getElementById('mobileMenu').style.display='none'" data-en="How It Works" data-id="Cara Kerja">How It Works</a>
+    <a href="#tours" onclick="document.getElementById('mobileMenu').style.display='none'" data-en="Tours" data-id="Paket Tur">Tours</a>
+    <a href="#buddies" onclick="document.getElementById('mobileMenu').style.display='none'" data-en="Our Buddies" data-id="Profil Buddy">Our Buddies</a>
+    <a href="#join" onclick="document.getElementById('mobileMenu').style.display='none'" data-en="Become a Buddy" data-id="Gabung Buddy">Become a Buddy</a>
+    <a href="https://wa.me/6281314497299" class="btn btn-wa" style="margin-top:20px" data-en="💬 Book via WhatsApp" data-id="💬 Pesan via WhatsApp">💬 Book via WhatsApp</a>
   </div>
 </div>
 
@@ -361,35 +328,17 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
 <section class="hero" id="home">
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow" style="color:#FFD9A0">🏝️ Authentic Bali Experience</span>
-      <h1>Explore Bali with a <em>Local Student Buddy</em> — Safe, Authentic, Affordable</h1>
-      <p>Ride with verified English-speaking university students. Discover hidden gems, real culture, and zero tourist traps — backed by an official travel agency license.</p>
+      <span class="eyebrow" style="color:#FFD9A0" data-en="🏝️ Authentic Bali Experience" data-id="🏝️ Pengalaman Bali Otentik">🏝️ Authentic Bali Experience</span>
+      <h1 data-en="Explore Bali with a <em>Local Student Buddy</em> — Safe, Authentic, Affordable" data-id="Jelajahi Bali dengan <em>Local Student Buddy</em> — Aman, Otentik, Terjangkau">Explore Bali with a <em>Local Student Buddy</em> — Safe, Authentic, Affordable</h1>
+      <p data-en="Calling all Solo & Duo Travelers! Experience Bali differently by riding on a scooter as a pillion rider, guided by our friendly university student buddies. Discover hidden gems, real culture, and zero tourist traps — backed by an official travel agency license." data-id="Khusus untuk Solo & Duo Travelers! Rasakan pengalaman berbeda berkeliling Bali dibonceng sepeda motor bersama buddy mahasiswa lokal yang ramah. Temukan hidden gems, budaya asli, tanpa jebakan turis — didukung izin agen travel resmi.">Calling all Solo & Duo Travelers! Experience Bali differently by riding on a scooter as a pillion rider, guided by our friendly university student buddies. Discover hidden gems, real culture, and zero tourist traps — backed by an official travel agency license.</p>
       <div class="hero-cta">
-        <a href="#tours" class="btn btn-primary">Explore Tours →</a>
-        <a href="https://wa.me/6281314497299" target="_blank" class="btn btn-white">💬 Book via WhatsApp</a>
+        <a href="#tours" class="btn btn-primary" data-en="Explore Tours →" data-id="Lihat Paket Tur →">Explore Tours →</a>
+        <a href="https://wa.me/6281314497299" target="_blank" class="btn btn-white" data-en="💬 Book via WhatsApp" data-id="💬 Pesan via WhatsApp">💬 Book via WhatsApp</a>
       </div>
       <div class="hero-stats">
-        <div><strong>2,160+</strong><span>Trips / Year Target</span></div>
-        <div><strong>4.8★</strong><span>Average Rating</span></div>
-        <div><strong>100%</strong><span>Legal & Insured</span></div>
-      </div>
-    </div>
-    <div class="hero-card">
-      <h4>⭐ Top-Rated Buddies Online</h4>
-      <div class="buddy-mini">
-        <div class="avatar">VA</div>
-        <div class="info"><strong>Vania A.</strong><small>Undiksha · English · Ubud</small></div>
-        <span class="badge-verified">VERIFIED</span>
-      </div>
-      <div class="buddy-mini">
-        <div class="avatar">PV</div>
-        <div class="info"><strong>Putri Vellicia</strong><small>Undiksha · English · Gianyar</small></div>
-        <span class="badge-verified">VERIFIED</span>
-      </div>
-      <div class="buddy-mini">
-        <div class="avatar">DL</div>
-        <div class="info"><strong>Debora Latersia</strong><small>Undiksha · English · Seminyak</small></div>
-        <span class="badge-verified">VERIFIED</span>
+        <div><strong>2,160+</strong><span data-en="Trips / Year Target" data-id="Target Trip / Tahun">Trips / Year Target</span></div>
+        <div><strong>4.8★</strong><span data-en="Average Rating" data-id="Rating Rata-rata">Average Rating</span></div>
+        <div><strong>100%</strong><span data-en="Legal & Insured" data-id="Legal & Berasuransi">Legal & Insured</span></div>
       </div>
     </div>
   </div>
@@ -398,46 +347,46 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
 <!-- ========== TRUST BAR ========== -->
 <div class="trust-bar">
   <div class="container trust-grid">
-    <div class="trust-item"><i>⚖️</i>NIB KBLI 79111</div>
-    <div class="trust-item"><i>🛡️</i>Patuh SE Gubernur 4/2023</div>
-    <div class="trust-item"><i>🪪</i>Verified SIM C Active</div>
-    <div class="trust-item"><i>🏥</i>Insurance Covered</div>
-    <div class="trust-item"><i>⛑️</i>Helm SNI/DOT Steril</div>
+    <div class="trust-item"><i>⚖️</i><span data-en="NIB KBLI 79111" data-id="NIB KBLI 79111">NIB KBLI 79111</span></div>
+    <div class="trust-item"><i>🛡️</i><span data-en="Compliant with SE Gubernur 4/2023" data-id="Patuh SE Gubernur 4/2023">Patuh SE Gubernur 4/2023</span></div>
+    <div class="trust-item"><i>🪪</i><span data-en="Verified Active SIM C" data-id="SIM C Aktif Terverifikasi">Verified SIM C Active</span></div>
+    <div class="trust-item"><i>🏥</i><span data-en="Insurance Covered" data-id="Tercakup Asuransi">Insurance Covered</span></div>
+    <div class="trust-item"><i>⛑️</i><span data-en="Sterile SNI Helmets" data-id="Helm SNI Steril">Sterile SNI Helmets</span></div>
   </div>
 </div>
 
 <!-- ========== HOW IT WORKS ========== -->
 <section class="how" id="how">
   <div class="container">
-    <span class="eyebrow">Proses Layanan</span>
-    <h2 class="section-title">How It Works — Model 2 Tahap Hybrid</h2>
-    <p class="section-sub">Kombinasi kenyamanan mobil untuk jarak jauh dan keseruan sepeda motor untuk eksplorasi lokal.</p>
+    <span class="eyebrow" data-en="Service Process" data-id="Proses Layanan">Service Process</span>
+    <h2 class="section-title" data-en="How It Works" data-id="Bagaimana Cara Kerjanya">How It Works</h2>
+    <p class="section-sub" data-en="A combination of the comfort of a car for long distances and the fun of a scooter for local exploration." data-id="Kombinasi kenyamanan mobil untuk jarak jauh dan keseruan sepeda motor untuk eksplorasi lokal.">A combination of the comfort of a car for long distances and the fun of a scooter for local exploration.</p>
     
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <h4>Pilih Rute</h4>
-        <p>Chat WA Concierge, pilih destinasi & waktu yang kamu mau.</p>
+        <h4 data-en="Choose Route" data-id="Pilih Rute">Choose Route</h4>
+        <p data-en="Chat our WA Concierge, pick your destination & time." data-id="Chat WA Concierge kami, pilih destinasi & waktu.">Chat our WA Concierge, pick your destination & time.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h4>Car Transfer</h4>
-        <p>Kami jemput di Bandara/Hub Kuta dengan mobil resmi (jika jarak jauh).</p>
+        <h4 data-en="Car Transfer" data-id="Antar Mobil">Car Transfer</h4>
+        <p data-en="We pick you up at Airport/Kuta Hub with an official car (for long distances)." data-id="Kami jemput di Bandara/Hub Kuta dengan mobil resmi (untuk jarak jauh).">We pick you up at Airport/Kuta Hub with an official car (for long distances).</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h4>Meet Your Buddy</h4>
-        <p>Serah terima ke mahasiswa lokal yang berdomisili di area tersebut.</p>
+        <h4 data-en="Meet Your Buddy" data-id="Bertemu Buddy">Meet Your Buddy</h4>
+        <p data-en="Handover to a local student buddy who lives in that area." data-id="Serah terima ke mahasiswa lokal yang berdomisili di area tersebut.">Handover to a local student buddy who lives in that area.</p>
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <h4>Explore (8 Jam)</h4>
-        <p>Keliling naik motor (dibonceng) ke hidden gems, aman & seru.</p>
+        <h4 data-en="Explore by Scooter" data-id="Eksplorasi Motor">Explore by Scooter</h4>
+        <p data-en="Ride as a pillion rider to hidden gems, safe & fun." data-id="Keliling naik motor (dibonceng) ke hidden gems, aman & seru.">Ride as a pillion rider to hidden gems, safe & fun.</p>
       </div>
       <div class="step">
         <div class="step-num">5</div>
-        <h4>Feedback</h4>
-        <p>Beri rating untuk buddy kamu untuk menjaga kualitas layanan.</p>
+        <h4 data-en="Leave Feedback" data-id="Beri Ulasan">Leave Feedback</h4>
+        <p data-en="Rate your buddy to help us maintain service quality." data-id="Beri rating untuk buddy kamu untuk menjaga kualitas layanan.">Rate your buddy to help us maintain service quality.</p>
       </div>
     </div>
   </div>
@@ -446,40 +395,18 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
 <!-- ========== TOURS ========== -->
 <section class="tours" id="tours">
   <div class="container">
-    <span class="eyebrow">Pilihan Destinasi</span>
-    <h2 class="section-title">Paket Tur Motor Harian (8 Jam)</h2>
-    <p class="section-sub">Harga transparan. Biaya operasional (bensin, makan buddy, tiket masuk) ditanggung langsung oleh wisatawan.</p>
+    <span class="eyebrow" data-en="Destination Choices" data-id="Pilihan Destinasi">Destination Choices</span>
+    <h2 class="section-title" data-en="Daily Scooter Tour Packages (8 Hours)" data-id="Paket Tur Motor Harian (8 Jam)">Daily Scooter Tour Packages (8 Hours)</h2>
+    <p class="section-sub" data-en="Transparent pricing. Operational costs (fuel, buddy's meal, entrance tickets) are covered directly by travelers." data-id="Harga transparan. Biaya operasional (bensin, makan buddy, tiket masuk) ditanggung langsung oleh wisatawan.">Transparent pricing. Operational costs (fuel, buddy's meal, entrance tickets) are covered directly by travelers.</p>
     
     <div class="tour-grid">
-      <!-- Tour 1 -->
+      <!-- UBUD -->
       <div class="tour-card">
         <div class="tour-img" style="background-image:url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80')">
-          <span class="tour-duration">8 Jam</span>
+          <span class="tour-duration" data-en="8 Hours" data-id="8 Jam">8 Hours</span>
         </div>
         <div class="tour-body">
-          <h3>Ubud Hidden Gems</h3>
-          <p class="route">Tegalalang Rice Terrace, Tibumana Waterfall, Monkey Forest.</p>
+          <h3 data-en="Ubud Culture & Nature" data-id="Budaya & Alam Ubud">Ubud Culture & Nature</h3>
+          <p class="route" data-en="Tegalalang Rice Terrace, Tibumana Waterfall, Monkey Forest. (Area: Ubud)" data-id="Tegalalang Rice Terrace, Air Terjun Tibumana, Monkey Forest. (Area: Ubud)">Tegalalang Rice Terrace, Tibumana Waterfall, Monkey Forest. (Area: Ubud)</p>
           <div class="tour-meta">
-            <div class="tour-price">Rp 450.000<small>/ trip</small></div>
-            <a href="https://wa.me/6281314497299?text=Hi,%20I%20want%20to%20book%20Ubud%20Hidden%20Gems" target="_blank" class="tour-book">Book Now</a>
-          </div>
-        </div>
-      </div>
-      <!-- Tour 2 -->
-      <div class="tour-card">
-        <div class="tour-img" style="background-image:url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80')">
-          <span class="tour-duration">8 Jam</span>
-        </div>
-        <div class="tour-body">
-          <h3>Uluwatu Sunset Ride</h3>
-          <p class="route">Padang Padang Beach, Uluwatu Temple, Kecak Dance.</p>
-          <div class="tour-meta">
-            <div class="tour-price">Rp 450.000<small>/ trip</small></div>
-            <a href="https://wa.me/6281314497299?text=Hi,%20I%20want%20to%20book%20Uluwatu%20Sunset" target="_blank" class="tour-book">Book Now</a>
-          </div>
-        </div>
-      </div>
-      <!-- Tour 3 -->
-      <div class="tour-card">
-        <div class="tour-img" style="background-image:url('https://images.unsplash.com/photo-1573894962266-660892c0e091?w=600&q=80')">
-          <span class="tour-duration">8 Jam</
+            <div
