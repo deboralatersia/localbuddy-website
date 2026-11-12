@@ -87,7 +87,7 @@ header.scrolled .nav-links a:hover{color:var(--coral);}
 .lang-switch{font-size:.85rem;font-weight:700;display:flex;gap:6px;align-items:center; color:var(--white);}
 header.scrolled .lang-switch{color:var(--gray);}
 .lang-switch button{background:none;border:none;color:inherit;font-family:inherit;font-size:inherit;font-weight:inherit;cursor:pointer;transition:.2s;padding:4px 8px;border-radius:4px;}
-.lang-switch button.active{color:var(--coral); background:rgba(255,107,74,.1);}
+.lang-switch button.active{color:var(--coral); background:rgba(255,107,74,.1); font-weight:800;}
 header.scrolled .lang-switch button.active{color:var(--coral);}
 .lang-switch button:hover{color:var(--coral);}
 
@@ -116,6 +116,19 @@ header.scrolled .hamburger{color:var(--ink);}
 .hero-stats div{display:flex;flex-direction:column}
 .hero-stats strong{font-size:1.8rem;font-family:'Fraunces',serif;color:#FFD9A0}
 .hero-stats span{font-size:.85rem;opacity:.85}
+.hero-card{
+  background:rgba(255,255,255,.12);backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.25);border-radius:24px;padding:30px;
+  position:relative;
+}
+.hero-card h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;text-transform:uppercase;letter-spacing:.1em;opacity:.8;margin-bottom:18px}
+.buddy-mini{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.buddy-mini:last-child{border-bottom:none}
+.buddy-mini .avatar{width:48px;height:48px;border-radius:50%;background:#FFD9A0;display:grid;place-items:center;font-weight:800;color:var(--green-dark);font-size:1.1rem;flex-shrink:0}
+.buddy-mini .info{flex:1;min-width:0}
+.buddy-mini .info strong{display:block;font-size:.95rem}
+.buddy-mini .info small{font-size:.78rem;opacity:.8}
+.badge-verified{background:rgba(255,217,160,.2);color:#FFD9A0;font-size:.7rem;padding:4px 10px;border-radius:20px;font-weight:700;white-space:nowrap}
 
 /* ========== TRUST BAR ========== */
 .trust-bar{background:var(--sand);padding:28px 0}
@@ -184,12 +197,6 @@ header.scrolled .hamburger{color:var(--ink);}
   display:flex; flex-direction:column;
 }
 .buddy-card:hover{transform:translateY(-5px)}
-.buddy-img-wrapper{
-  width:120px;height:120px;border-radius:50%;margin:0 auto 16px;
-  background:var(--green-light); display:flex; align-items:center; justify-content:center;
-  position:relative; overflow:hidden; border:4px solid #fff; box-shadow:0 8px 20px rgba(0,0,0,.1);
-}
-.buddy-img-wrapper img{width:100%;height:100%;object-fit:cover;}
 .buddy-avatar{
   width:120px;height:120px;border-radius:50%;margin:0 auto 16px;
   background:linear-gradient(135deg,var(--green),var(--green-dark));
@@ -265,6 +272,7 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
 /* ========== RESPONSIVE ========== */
 @media(max-width:968px){
   .hero-grid,.buddy-join-grid{grid-template-columns:1fr}
+  .hero-card{display:none}
   .nav-links{display:none}
   .hamburger{display:block}
   .trust-grid,.steps{grid-template-columns:repeat(2,1fr)}
@@ -278,7 +286,7 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
   .trust-grid,.steps,.tour-grid,.buddy-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .wa-float{width:56px;height:56px;bottom:20px;right:20px}
-  .lang-switch{display:none;} /* Sembunyikan switch bahasa di HP jika layar terlalu kecil, atau biarkan jika muat */
+  .lang-switch{display:none;} 
 }
 </style>
 </head>
@@ -301,12 +309,11 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
       <li><a href="#join" data-en="Become a Buddy" data-id="Gabung Buddy">Become a Buddy</a></li>
     </ul>
     <div class="nav-cta">
-      <!-- FITUR GANTI BAHASA -->
       <div class="lang-switch">
         <button id="btn-en" class="active" onclick="setLang('en')">EN</button> | 
         <button id="btn-id" onclick="setLang('id')">ID</button>
       </div>
-      <a href="https://wa.me/6281314497299?text=Hi%20Local%20Buddy!%20I%20want%20to%20book%20a%20tour." target="_blank" class="btn btn-wa" style="padding:10px 22px;font-size:.88rem">💬 Book Now</a>
+      <a href="https://wa.me/6281314497299" target="_blank" class="btn btn-wa" style="padding:10px 22px;font-size:.88rem" data-en="💬 Book Now" data-id="💬 Pesan">💬 Book Now</a>
       <button class="hamburger" onclick="document.getElementById('mobileMenu').style.display='block'">☰</button>
     </div>
   </div>
@@ -339,6 +346,24 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
         <div><strong>2,160+</strong><span data-en="Trips / Year Target" data-id="Target Trip / Tahun">Trips / Year Target</span></div>
         <div><strong>4.8★</strong><span data-en="Average Rating" data-id="Rating Rata-rata">Average Rating</span></div>
         <div><strong>100%</strong><span data-en="Legal & Insured" data-id="Legal & Berasuransi">Legal & Insured</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h4 data-en="⭐ Top-Rated Buddies Online" data-id="⭐ Buddy Rating Teratas">⭐ Top-Rated Buddies Online</h4>
+      <div class="buddy-mini">
+        <div class="avatar">VA</div>
+        <div class="info"><strong>Vania</strong><small>Undiksha · English · Ubud</small></div>
+        <span class="badge-verified">VERIFIED</span>
+      </div>
+      <div class="buddy-mini">
+        <div class="avatar">PV</div>
+        <div class="info"><strong>Vellicia</strong><small>Undiksha · English · Gianyar</small></div>
+        <span class="badge-verified">VERIFIED</span>
+      </div>
+      <div class="buddy-mini">
+        <div class="avatar">DL</div>
+        <div class="info"><strong>Debora</strong><small>Undiksha · English · Seminyak</small></div>
+        <span class="badge-verified">VERIFIED</span>
       </div>
     </div>
   </div>
@@ -409,4 +434,241 @@ footer{background:#0A2A1E;color:rgba(255,255,255,.7);padding:70px 0 30px}
           <h3 data-en="Ubud Culture & Nature" data-id="Budaya & Alam Ubud">Ubud Culture & Nature</h3>
           <p class="route" data-en="Tegalalang Rice Terrace, Tibumana Waterfall, Monkey Forest. (Area: Ubud)" data-id="Tegalalang Rice Terrace, Air Terjun Tibumana, Monkey Forest. (Area: Ubud)">Tegalalang Rice Terrace, Tibumana Waterfall, Monkey Forest. (Area: Ubud)</p>
           <div class="tour-meta">
-            <div
+            <div class="tour-price">Rp 450.000<small data-en="/ trip" data-id="/ trip">/ trip</small></div>
+            <a href="https://wa.me/6281314497299?text=Hi,%20I%20want%20to%20book%20Ubud%20Tour" target="_blank" class="tour-book" data-en="Book Now" data-id="Pesan">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- SEMINYAK / BADUNG -->
+      <div class="tour-card">
+        <div class="tour-img" style="background-image:url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=600&q=80')">
+          <span class="tour-duration" data-en="8 Hours" data-id="8 Jam">8 Hours</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-en="Seminyak & Badung Coastal" data-id="Pesisir Seminyak & Badung">Seminyak & Badung Coastal</h3>
+          <p class="route" data-en="Seminyak Beach, Tanah Lot, Canggu Shortcut. (Area: Badung)" data-id="Pantai Seminyak, Tanah Lot, Canggu. (Area: Badung)">Seminyak Beach, Tanah Lot, Canggu Shortcut. (Area: Badung)</p>
+          <div class="tour-meta">
+            <div class="tour-price">Rp 450.000<small data-en="/ trip" data-id="/ trip">/ trip</small></div>
+            <a href="https://wa.me/6281314497299?text=Hi,%20I%20want%20to%20book%20Seminyak%20Tour" target="_blank" class="tour-book" data-en="Book Now" data-id="Pesan">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <!-- GIANYAR -->
+      <div class="tour-card">
+        <div class="tour-img" style="background-image:url('https://images.unsplash.com/photo-1573894962266-660892c0e091?w=600&q=80')">
+          <span class="tour-duration" data-en="8 Hours" data-id="8 Jam">8 Hours</span>
+        </div>
+        <div class="tour-body">
+          <h3 data-en="Gianyar Hidden Gems" data-id="Hidden Gems Gianyar">Gianyar Hidden Gems</h3>
+          <p class="route" data-en="Goa Gajah, Keramas Beach, Bali Safari. (Area: Gianyar - Include Car Transfer from Airport)" data-id="Goa Gajah, Pantai Keramas, Bali Safari. (Area: Gianyar - Termasuk Car Transfer dari Bandara)">Goa Gajah, Keramas Beach, Bali Safari. (Area: Gianyar - Include Car Transfer from Airport)</p>
+          <div class="tour-meta">
+            <div class="tour-price">Rp 550.000<small data-en="/ trip" data-id="/ trip">/ trip</small></div>
+            <a href="https://wa.me/6281314497299?text=Hi,%20I%20want%20to%20book%20Gianyar%20Tour" target="_blank" class="tour-book" data-en="Book Now" data-id="Pesan">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CUSTOM PER HOUR TOUR -->
+    <div class="custom-tour-box">
+      <div>
+        <h3 data-en="Want a Custom Route? (Flexible Hours)" data-id="Mau Rute Bebas? (Tarif Per Jam)">Want a Custom Route? (Flexible Hours)</h3>
+        <p data-en="Tell us where you want to go within the target area! Perfect if you only want to visit 1 or 2 spots." data-id="Katakan mau ke mana saja di area target! Cocok kalau kamu cuma mau ke 1 atau 2 tempat.">Tell us where you want to go within the target area! Perfect if you only want to visit 1 or 2 spots.</p>
+        <div class="custom-tour-prices">
+          <span data-en="Ubud Area: Rp 60k / Hour" data-id="Area Ubud: Rp 60rb / Jam">Ubud Area: Rp 60k / Hour</span>
+          <span data-en="Badung Area: Rp 60k / Hour" data-id="Area Badung: Rp 60rb / Jam">Badung Area: Rp 60k / Hour</span>
+          <span data-en="Gianyar Area: Rp 70k / Hour" data-id="Area Gianyar: Rp 70rb / Jam">Gianyar Area: Rp 70k / Hour</span>
+        </div>
+      </div>
+      <a href="https://wa.me/6281314497299?text=Hi,%20I%20want%20to%20custom%20my%20route%20per%20hour" target="_blank" class="btn btn-primary" style="white-space:nowrap;" data-en="Chat Us Now" data-id="Hubungi Kami">Chat Us Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BUDDIES & REVIEWS ========== -->
+<section class="buddies" id="buddies">
+  <div class="container">
+    <span class="eyebrow" data-en="Student Partners" data-id="Mitra Mahasiswa">Student Partners</span>
+    <h2 class="section-title" data-en="Meet Our Verified Buddies" data-id="Kenalan Sama Buddy Kami">Meet Our Verified Buddies</h2>
+    <p class="section-sub" data-en="They are local university students who love traveling and sharing Bali's beauty with you." data-id="Mereka adalah mahasiswa lokal yang hobi traveling dan siap menemani kamu eksplor Bali.">They are local university students who love traveling and sharing Bali's beauty with you.</p>
+
+    <div class="buddy-grid">
+      <!-- DEBORA -->
+      <div class="buddy-card">
+        <div class="buddy-avatar">DL</div>
+        <h4>Debora</h4>
+        <div class="age" data-en="21 y.o · Undiksha" data-id="21 Tahun · Undiksha">21 y.o · Undiksha</div>
+        <div class="buddy-tags">
+          <span class="tag" data-en="Seminyak Area" data-id="Area Seminyak">Seminyak Area</span>
+          <span class="tag senior" data-en="Senior Buddy" data-id="Buddy Senior">Senior Buddy</span>
+        </div>
+        <div class="buddy-reviews">
+          <h5 data-en="Traveler Reviews" data-id="Ulasan Wisatawan">Traveler Reviews</h5>
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Debora is super friendly! She took great photos of me and knew all the best spots in Canggu."</p>
+            <div class="review-author">- Sarah (AUS)</div>
+          </div>
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Very fluent in English, felt like hanging out with an old friend. Highly recommended!"</p>
+            <div class="review-author">- Mark (UK)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VELLICIA -->
+      <div class="buddy-card">
+        <div class="buddy-avatar">PV</div>
+        <h4>Vellicia</h4>
+        <div class="age" data-en="22 y.o · Undiksha" data-id="22 Tahun · Undiksha">22 y.o · Undiksha</div>
+        <div class="buddy-tags">
+          <span class="tag" data-en="Gianyar Area" data-id="Area Gianyar">Gianyar Area</span>
+          <span class="tag senior" data-en="Senior Buddy" data-id="Buddy Senior">Senior Buddy</span>
+        </div>
+        <div class="buddy-reviews">
+          <h5 data-en="Traveler Reviews" data-id="Ulasan Wisatawan">Traveler Reviews</h5>
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"She knows the most beautiful hidden waterfalls in Gianyar. The ride was smooth and safe."</p>
+            <div class="review-author">- Emma (USA)</div>
+          </div>
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"Vellicia is so sweet. She explained the local culture while we visited Goa Gajah. Loved it!"</p>
+            <div class="review-author">- Lucas (FRA)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VANIA -->
+      <div class="buddy-card">
+        <div class="buddy-avatar">VA</div>
+        <h4>Vania</h4>
+        <div class="age" data-en="23 y.o · Undiksha" data-id="23 Tahun · Undiksha">23 y.o · Undiksha</div>
+        <div class="buddy-tags">
+          <span class="tag" data-en="Ubud Area" data-id="Area Ubud">Ubud Area</span>
+          <span class="tag" data-en="Junior Buddy" data-id="Buddy Junior">Junior Buddy</span>
+        </div>
+        <div class="buddy-reviews">
+          <h5 data-en="Traveler Reviews" data-id="Ulasan Wisatawan">Traveler Reviews</h5>
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"A very fun travel companion. The scooter ride through Tegallalang was the highlight of my trip."</p>
+            <div class="review-author">- Tom (GER)</div>
+          </div>
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"She is very careful when driving. As a solo female traveler, I felt very safe with her."</p>
+            <div class="review-author">- Yuki (JPN)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BECOME A BUDDY (EMAIL) ========== -->
+<section class="buddy-join" id="join">
+  <div class="container buddy-join-grid">
+    <div>
+      <h2 data-en="Join Our Team as a Student Buddy!" data-id="Gabung Jadi Student Buddy!">Join Our Team as a Student Buddy!</h2>
+      <p data-en="Get flexible side income, practice your English, and make international friends." data-id="Dapatkan penghasilan sampingan fleksibel, latih bahasa Inggris, dan dapat teman internasional.">Get flexible side income, practice your English, and make international friends.</p>
+      <ul class="benefit-list">
+        <li><span class="ben-icon">💵</span> <span data-en="Earn Rp 270.000 - Rp 315.000 per trip" data-id="Dapat Rp 270.000 - Rp 315.000 per trip">Earn Rp 270.000 - Rp 315.000 per trip</span></li>
+        <li><span class="ben-icon">⏰</span> <span data-en="Flexible working hours (outside classes)" data-id="Jam kerja fleksibel (di luar kelas)">Flexible working hours (outside classes)</span></li>
+        <li><span class="ben-icon">👕</span> <span data-en="Official uniform & verified ID Card" data-id="Seragam resmi & ID Card terverifikasi">Official uniform & verified ID Card</span></li>
+      </ul>
+    </div>
+    <div class="email-box">
+      <h3 data-en="Send Your CV Now!" data-id="Kirim CV Kamu Sekarang!">Send Your CV Now!</h3>
+      <p data-en="Send your CV & SIM C photo to our HRD email:" data-id="Kirim CV & foto SIM C kamu ke email HRD kami:">Send your CV & SIM C photo to our HRD email:</p>
+      <div class="email-address">hrd@localbuddybali.co.id</div>
+      <span class="email-subject" data-en="Subject: Application - Student Buddy - [Your Name]" data-id="Subjek: Lamaran - Student Buddy - [Nama Kamu]">Subject: Application - Student Buddy - [Your Name]</span>
+      <a href="mailto:hrd@localbuddybali.co.id?subject=Application%20-%20Student%20Buddy" class="btn btn-primary" style="width:100%;" data-en="Open Email App" data-id="Buka Aplikasi Email">Open Email App</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-mark" style="background:var(--coral)">🏍️</div>
+          <div class="logo-text">Local Buddy<small>BALI EXPLORER</small></div>
+        </div>
+        <p data-en="The #1 platform connecting solo/duo travelers with verified local university students for an authentic scooter adventure in Bali." data-id="Platform #1 yang menghubungkan solo/duo traveler dengan mahasiswa lokal terverifikasi untuk petualangan motor otentik di Bali.">The #1 platform connecting solo/duo travelers with verified local university students for an authentic scooter adventure in Bali.</p>
+      </div>
+      <div class="footer-col">
+        <h5 data-en="Quick Links" data-id="Tautan Cepat">Quick Links</h5>
+        <ul>
+          <li><a href="#how" data-en="How It Works" data-id="Cara Kerja">How It Works</a></li>
+          <li><a href="#tours" data-en="Tours" data-id="Paket Tur">Tours</a></li>
+          <li><a href="#buddies" data-en="Our Buddies" data-id="Profil Buddy">Our Buddies</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-en="Legal" data-id="Legalitas">Legal</h5>
+        <ul>
+          <li><a href="#">NIB KBLI 79111</a></li>
+          <li><a href="#">SE Gubernur Bali 4/2023</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5 data-en="Contact Us" data-id="Hubungi Kami">Contact Us</h5>
+        <ul>
+          <li><a href="https://wa.me/6281314497299">WhatsApp Concierge</a></li>
+          <li><a href="mailto:hrd@localbuddybali.co.id">hrd@localbuddybali.co.id</a></li>
+          <li><a href="#">Kuta Hub, Bali</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-en="© 2024 Local Buddy Bali Explorer. All rights reserved." data-id="© 2024 Local Buddy Bali Explorer. Hak cipta dilindungi undang-undang.">© 2024 Local Buddy Bali Explorer. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<a href="https://wa.me/6281314497299" target="_blank" class="wa-float">
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<!-- ========== SCRIPT BAHASA ========== -->
+<script>
+let currentLang = 'en';
+function setLang(lang) {
+  currentLang = lang;
+  
+  // Ganti semua teks berdasarkan atribut data-en / data-id
+  const elements = document.querySelectorAll('[data-en]');
+  elements.forEach(el => {
+    if (lang === 'en') {
+      el.innerHTML = el.getAttribute('data-en');
+    } else {
+      el.innerHTML = el.getAttribute('data-id');
+    }
+  });
+
+  // Ubah status tombol aktif
+  document.getElementById('btn-en').classList.remove('active');
+  document.getElementById('btn-id').classList.remove('active');
+  document.getElementById('btn-' + lang).classList.add('active');
+}
+
+// Efek Navbar saat di-scroll
+window.addEventListener('scroll', function() {
+  const header = document.getElementById('header');
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+</script>
+
+</body>
+</html>
